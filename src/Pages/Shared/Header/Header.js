@@ -16,40 +16,7 @@ const Header = () => {
   };
 
   return (
-    // <header className='flex justify-between items-center p-2 bg-gray-400'>
-    //   <Link to='/'><img src={BrandLogo} alt="" /></Link>
-
-    //   <div className='space-x-5'>
-    //     <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'>Home</NavLink>
-    //     <NavLink to='/courses'>Courses</NavLink>
-    //     <NavLink>FAQ</NavLink>
-    //     <NavLink>Blog</NavLink>
-    //     <NavLink>light</NavLink>
-    //     <NavLink>Dark</NavLink>
-    //   {
-    //     user?.uid ?
-    //       <>
-    //         <NavLink><button onClick={handleLogOut}>Log Out</button></NavLink>
-    //       </>
-    //       :
-    //       <>
-    //         <NavLink to='/login'>Login</NavLink>
-    //         <NavLink to='/register'>Sign Up</NavLink>
-    //       </>
-    //   }
-    // </div>
-    // <div>
-    //   {
-    //     user?.uid ?
-    //       <img title={user?.displayName} src={user?.photoURL} className='w-10 h-10 rounded-full' alt='img'></img>
-    //       :
-    //       <FaUserCircle />
-    //   }
-    //   </div>
-    // </header>
-
-
-    <div className="navbar bg-gray-400">
+    <div className="navbar bg-[#002333] text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="lg:hidden btn btn-ghost btn-circle">
