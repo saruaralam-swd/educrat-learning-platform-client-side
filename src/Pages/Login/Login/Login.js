@@ -1,10 +1,12 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
-  const { providerLogin } = useContext(AuthContext);
+  const { providerLogin,  signIn } = useContext(AuthContext);
+  const [error, setError] = useState('');
+
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
 
@@ -17,6 +19,7 @@ const Login = () => {
       })
       .catch(error => {
         console.error('error', error);
+        setError(error.message)
       })
   };
 
@@ -28,25 +31,43 @@ const Login = () => {
       })
       .catch(error => {
         console.error('error', error);
+        setError(error.message)
+      })
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then(() => {
+        form.reset()
+        setError('')
+      })
+      .catch(error => {
+        console.error(error)
+        setError(error.message)
       })
   };
 
   return (
-    <div className='flex items-center justify-center '>
-      <div className='border'>
-        <form className=' p-5 space-y-5 w-[400px]'>
+    <div className='bg-[#EFEBFA] flex justify-center min-h-[600px] py-10'>
+      <div className='bg-[#F6F6FD] rounded-xl h-[500px]'>
+        <form onSubmit={handleSubmit} className=' px-8 pt-8 space-y-5 w-[400px]'>
           <div className='space-y-2'>
             <h2>Your Email</h2>
-            <input className='border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="email" name="email" placeholder='your email' required />
+            <input className='border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="email" name="email" placeholder='your email' />
           </div>
 
           <div className='space-y-2'>
             <h2>Password</h2>
-            <input className='border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="password" name="password" placeholder='your password' required />
+            <input className='border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="password" name="password" placeholder='your password' />
           </div>
 
-          {/* error */}
-          <p className='text-red-400'></p>
+          <p className='text-red-400'>{error}</p>
 
           <button className='bg-yellow-300 hover:bg-yellow-400 px-4 py-1 rounded-md'>Login</button><br></br>
 
