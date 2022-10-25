@@ -16,16 +16,71 @@ const Header = () => {
   };
 
   return (
-    <header className='flex justify-between items-center p-2 bg-gray-400'>
-      <Link to='/'><img src={BrandLogo} alt="" /></Link>
+    // <header className='flex justify-between items-center p-2 bg-gray-400'>
+    //   <Link to='/'><img src={BrandLogo} alt="" /></Link>
 
-      <div className='space-x-5'>
-        <NavLink className={({ isActive }) => isActive ? 'active' : undefined}>Home</NavLink>
-        <NavLink>Courses</NavLink>
-        <NavLink>FAQ</NavLink>
-        <NavLink>Blog</NavLink>
-        <NavLink>light</NavLink>
-        <NavLink>Dark</NavLink>
+    //   <div className='space-x-5'>
+    //     <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'>Home</NavLink>
+    //     <NavLink to='/courses'>Courses</NavLink>
+    //     <NavLink>FAQ</NavLink>
+    //     <NavLink>Blog</NavLink>
+    //     <NavLink>light</NavLink>
+    //     <NavLink>Dark</NavLink>
+    //   {
+    //     user?.uid ?
+    //       <>
+    //         <NavLink><button onClick={handleLogOut}>Log Out</button></NavLink>
+    //       </>
+    //       :
+    //       <>
+    //         <NavLink to='/login'>Login</NavLink>
+    //         <NavLink to='/register'>Sign Up</NavLink>
+    //       </>
+    //   }
+    // </div>
+    // <div>
+    //   {
+    //     user?.uid ?
+    //       <img title={user?.displayName} src={user?.photoURL} className='w-10 h-10 rounded-full' alt='img'></img>
+    //       :
+    //       <FaUserCircle />
+    //   }
+    //   </div>
+    // </header>
+
+
+    <div className="navbar bg-gray-400">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <label tabIndex={0} className="lg:hidden btn btn-ghost btn-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+          </label>
+
+          <label tabIndex={0} className='hidden lg:block'>
+            <Link to='/'><img src={BrandLogo} alt="" /></Link>
+          </label>
+
+          <ul tabIndex={0} className="lg:hidden menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-400 text-white rounded-box w-52">
+            <Link to='/'><img src={BrandLogo} alt="" /></Link>
+            <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'>Home</NavLink>
+            <NavLink to='/courses'>Courses</NavLink>
+            <NavLink>FAQ</NavLink>
+            <NavLink>Blog</NavLink>
+
+          </ul>
+        </div>
+      </div>
+
+      <div className="navbar-center hidden lg:block ">
+        <div className='space-x-5'>
+          <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'>Home</NavLink>
+          <NavLink to='/courses'>Courses</NavLink>
+          <NavLink>FAQ</NavLink>
+          <NavLink>Blog</NavLink>
+        </div>
+      </div>
+
+      <div className="navbar-end space-x-5">
         {
           user?.uid ?
             <>
@@ -37,8 +92,7 @@ const Header = () => {
               <NavLink to='/register'>Sign Up</NavLink>
             </>
         }
-      </div>
-      <div>
+
         {
           user?.uid ?
             <img title={user?.displayName} src={user?.photoURL} className='w-10 h-10 rounded-full' alt='img'></img>
@@ -46,7 +100,8 @@ const Header = () => {
             <FaUserCircle />
         }
       </div>
-    </header>
+    </div>
+
   );
 };
 

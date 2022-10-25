@@ -1,7 +1,8 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const { providerLogin,  signIn } = useContext(AuthContext);
@@ -9,6 +10,7 @@ const Login = () => {
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  const navigate = useNavigate();
 
   // signIn with google 
   const handleGoogleSignIn = () => {
@@ -16,6 +18,7 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
+        navigate('/')
       })
       .catch(error => {
         console.error('error', error);
@@ -28,6 +31,7 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
+        navigate('/')
       })
       .catch(error => {
         console.error('error', error);
@@ -46,6 +50,7 @@ const Login = () => {
       .then(() => {
         form.reset()
         setError('')
+        navigate('/')
       })
       .catch(error => {
         console.error(error)
@@ -78,8 +83,8 @@ const Login = () => {
         </form>
 
         <div className='p-5'>
-          <button onClick={handleGoogleSignIn} className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 mb-3 rounded-md'> <span>sign in with Google</span></button>
-          <button onClick={handleGithubSignIn} className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 rounded-md'> <span>sign in with Github</span></button>
+          <button onClick={handleGoogleSignIn} className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 mb-3 rounded-md'><FaGoogle className='text-lg' /> <span>sign in with Google</span></button>
+          <button onClick={handleGithubSignIn} className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 rounded-md'> <FaGithub className='text-lg' /> <span>sign in with Github</span></button>
         </div>
       </div>
     </div>

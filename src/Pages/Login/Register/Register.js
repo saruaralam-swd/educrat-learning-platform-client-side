@@ -18,7 +18,7 @@ const Register = () => {
 
     createUser(email, password)
       .then(result => {
-        const user = result.user;
+        const user = result.user
         form.reset();
         setError('')
         handleUpdateUserProfile(name, photoURL);
@@ -31,7 +31,7 @@ const Register = () => {
 
   const handleUpdateUserProfile = (name, photoURL) => {
     const profile = {
-      displayName: name, 
+      displayName: name,
       photoURL: photoURL
     };
     return updateUserProfile(profile);
@@ -42,9 +42,9 @@ const Register = () => {
       <div className='bg-[#F6F6FD] rounded-xl'>
         <form onSubmit={handleSubmit} className='px-8 pt-8 space-y-5 w-[400px] '>
           <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="text" name="name" placeholder='Your Full Name' />
-          <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="text" name="photoURL" placeholder='Photo URL' required/>
-          <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="email" name="email" placeholder='example@gmail.com' required/>
-          <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="password" name="password" placeholder='Password' required/>
+          <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="text" name="photoURL" placeholder='Photo URL' required />
+          <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="email" name="email" placeholder='example@gmail.com' required />
+          <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="password" name="password" placeholder='Password' required />
 
           <p className='text-red-400'>{error}</p>
 
@@ -66,6 +66,3 @@ const Register = () => {
 
 export default Register;
 
-/* <FaGoogle className='text-red-400 text-lg' />
-<FaFacebook className='text-[#3076FF] text-lg' />
- */
