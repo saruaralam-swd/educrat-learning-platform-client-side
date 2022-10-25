@@ -1,9 +1,37 @@
-import React from 'react';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
-  return (
+  const { providerLogin } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
+  // signIn with google 
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch(error => {
+        console.error('error', error);
+      })
+  };
+
+  const handleGithubSignIn = () => {
+    providerLogin(githubProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch(error => {
+        console.error('error', error);
+      })
+  };
+
+  return (
     <div className='flex items-center justify-center '>
       <div className='border'>
         <form className=' p-5 space-y-5 w-[400px]'>
@@ -29,8 +57,8 @@ const Login = () => {
         </form>
 
         <div className='p-5'>
-          <button className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 mb-3 rounded-md'> <span>sign in with google</span></button>
-          <button className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 rounded-md'> <span>sign in with facebook</span></button>
+          <button onClick={handleGoogleSignIn} className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 mb-3 rounded-md'> <span>sign in with Google</span></button>
+          <button onClick={handleGithubSignIn} className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 rounded-md'> <span>sign in with Github</span></button>
         </div>
       </div>
     </div>

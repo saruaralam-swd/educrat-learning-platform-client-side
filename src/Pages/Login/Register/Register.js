@@ -8,7 +8,7 @@ const Register = () => {
         <form  className='p-5 space-y-5 w-[400px] border rounded-md'>
 
           <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600' type="text" name="firstName" placeholder='Enter First Name' required />
-          <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600' type="text" name="lastName" required placeholder='Last Name' />
+          
           <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600' type="text" name="photoURL" placeholder='PhotoURL' />
           <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600' type="email" name="email" required placeholder='Enter Your Email' />
           <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600' type="password" name="password" required placeholder='Password' />

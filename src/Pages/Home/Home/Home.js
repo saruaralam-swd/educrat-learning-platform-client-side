@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Home = () => {
+  const {user} = useContext(AuthContext);
+
   return (
     <div>
-      <h4>Home page</h4>
+     <p>Home</p>
     </div>
   );
 };
