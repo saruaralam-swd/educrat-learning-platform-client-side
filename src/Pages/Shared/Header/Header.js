@@ -3,9 +3,10 @@ import { Link, NavLink } from 'react-router-dom';
 import BrandLogo from '../../../assets/img/BrandLogo.svg'
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaHome, FaUserCircle } from "react-icons/fa";
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 
 
-const Header = () => {
+const Header = ({ theme, setTheme }) => {
   const { user, logOut } = useContext(AuthContext)
 
   // log out
@@ -33,18 +34,28 @@ const Header = () => {
             <NavLink to='/courses'>Courses</NavLink>
             <NavLink>FAQ</NavLink>
             <NavLink>Blog</NavLink>
-
+            {
+              theme === 'light' ?
+                <NavLink onClick={() => setTheme("dark")} title='Dark Mode'><MoonIcon className="h-6 w-6 text-blue-500" /></NavLink>
+                :
+                <NavLink onClick={() => setTheme("light")} title='Light'><SunIcon className="h-6 w-6 text-blue-500" /></NavLink>
+            }
           </ul>
         </div>
       </div>
 
       <div className="navbar-center hidden lg:block ">
-        <div className='space-x-5'>
+        <div className='space-x-5 md:flex'>
           <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'> Home</NavLink>
           <NavLink to='/courses'>Courses</NavLink>
           <NavLink>FAQ</NavLink>
           <NavLink>Blog</NavLink>
-          <NavLink>light/Dark</NavLink>
+          {
+            theme === 'light' ?
+              <NavLink onClick={() => setTheme("dark")} title='Dark Mode'><MoonIcon className="h-6 w-6 text-blue-500" /></NavLink>
+              :
+              <NavLink onClick={() => setTheme("light")} title='Light'><SunIcon className="h-6 w-6 text-blue-500" /></NavLink>
+          }
         </div>
       </div>
 
