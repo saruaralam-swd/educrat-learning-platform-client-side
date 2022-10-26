@@ -77,7 +77,7 @@ const Register = () => {
     <div className='bg-[#EFEBFA] flex items-center justify-center py-10'>
       <div className='bg-[#F6F6FD] rounded-xl'>
         <form onSubmit={handleSubmit} className='px-8 pt-8 space-y-5 w-[400px] '>
-          <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="text" name="name" placeholder='Your Full Name' />
+          <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="text" name="name" placeholder='Full Name' />
           <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="text" name="photoURL" placeholder='Photo URL' required />
           <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="email" name="email" placeholder='example@gmail.com' required />
           <input className='border-b-2 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="password" name="password" placeholder='Password' required />

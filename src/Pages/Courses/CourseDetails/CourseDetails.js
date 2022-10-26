@@ -5,8 +5,7 @@ import { FaDownload } from 'react-icons/fa'
 
 const CourseDetails = () => {
   const course = useLoaderData();
-  console.log(course);
-  const { name } = course;
+  const { id, name } = course;
 
   return (
     <div>
@@ -14,7 +13,7 @@ const CourseDetails = () => {
         {name}
         <Link><FaDownload className='inline-block' /></Link>
       </h3>
-      <Link to='/'><button className='bg-violet-500 text-white px-4 py-1 rounded-md'>get premium access</button></Link>
+      <Link to={`/course/${id}`}><button className='bg-violet-500 text-white px-4 py-1 rounded-md'>get premium access</button></Link>
     </div>
   );
 };

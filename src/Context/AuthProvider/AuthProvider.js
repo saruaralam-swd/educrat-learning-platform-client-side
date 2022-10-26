@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // provider login
   const providerLogin = (provider) => {
@@ -39,13 +40,14 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log('on state user ', currentUser)
       setUser(currentUser)
+      setLoading(false)
     })
     return () => {
       unsubscribe();
     }
   }, []);
 
-  const authInfo = { user, providerLogin, createUser, updateUserProfile, signIn, logOut, };
+  const authInfo = { user, loading, providerLogin, createUser, updateUserProfile, signIn, logOut, };
   return (
     <AuthContext.Provider value={authInfo}>
       {children}

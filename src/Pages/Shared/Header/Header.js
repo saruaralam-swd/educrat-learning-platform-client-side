@@ -27,7 +27,7 @@ const Header = () => {
             <Link to='/'><img src={BrandLogo} alt="" /></Link>
           </label>
 
-          <ul tabIndex={0} className="lg:hidden menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-400 text-white rounded-box w-52">
+          <ul tabIndex={0} className="lg:hidden menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#002333] text-white rounded-box w-52">
             <Link to='/'><img src={BrandLogo} alt="" /></Link>
             <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'>Home</NavLink>
             <NavLink to='/courses'>Courses</NavLink>
