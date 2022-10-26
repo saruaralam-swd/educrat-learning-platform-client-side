@@ -89,12 +89,12 @@ const Register = () => {
 
           <p className='text-red-400'>{error}</p>
 
-          <button className='bg-[#f9a51a] hover:bg-[#eca93d] px-4 py-3 w-full font-semibold rounded-md'>Crate a account</button>
-
+          <button className='bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 w-full font-semibold rounded-md'>Crate a account</button>
+          
           <p className='text-center mt-4'>Already have account ? <Link to='/login' className='hover:underline text-[#F9A51A]'>Login</Link></p>
-        </form>
 
-        <p className='text-center'>or</p>
+          <div className="divider">OR</div>
+        </form>
 
         <div className='p-5'>
           <div className='p-5'>

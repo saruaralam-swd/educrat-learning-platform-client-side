@@ -3,7 +3,7 @@ import heroImg from '../../../assets/img/hero_img.png'
 
 const HeroSection = () => {
   return (
-    <div className='grid md:grid-cols-2'>
+    <div className='grid md:grid-cols-2 mb-10'>
       <div className='order-2 md:order-1 flex items-center justify-center m-5 md:m-0'>
         <div className='space-y-2'>
           <h2 className='text-4xl md:text-4xl lg:text-5xl font-semibold text-[#002333]'>Learn Soft Skills</h2>

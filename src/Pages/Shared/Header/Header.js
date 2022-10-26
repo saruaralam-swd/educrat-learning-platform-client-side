@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import BrandLogo from '../../../assets/img/BrandLogo.svg'
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
-import { FaUserCircle } from "react-icons/fa";
+import { FaHome, FaUserCircle } from "react-icons/fa";
 
 
 const Header = () => {
@@ -29,7 +29,7 @@ const Header = () => {
 
           <ul tabIndex={0} className="lg:hidden menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#002333] text-white rounded-box w-52">
             <Link to='/'><img src={BrandLogo} alt="" /></Link>
-            <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'>Home</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'><FaHome className='inline-block' /> Home</NavLink>
             <NavLink to='/courses'>Courses</NavLink>
             <NavLink>FAQ</NavLink>
             <NavLink>Blog</NavLink>
@@ -40,7 +40,7 @@ const Header = () => {
 
       <div className="navbar-center hidden lg:block ">
         <div className='space-x-5'>
-          <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'>Home</NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'> Home</NavLink>
           <NavLink to='/courses'>Courses</NavLink>
           <NavLink>FAQ</NavLink>
           <NavLink>Blog</NavLink>

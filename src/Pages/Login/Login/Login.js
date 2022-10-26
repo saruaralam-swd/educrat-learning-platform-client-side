@@ -82,7 +82,8 @@ const Login = () => {
 
           <button className='bg-yellow-300 hover:bg-yellow-400 px-4 py-1 rounded-md'>Login</button><br></br>
 
-          <hr></hr>
+          <div className="divider">OR</div>
+
           <Link className='text-sm hover:underline text-blue-600'>Forget Password?</Link> <br></br>
           <Link to='/register' className='text-sm hover:underline text-blue-600'>Or, Sign Up Using E-mail Address </Link>
         </form>
