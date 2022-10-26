@@ -9,21 +9,23 @@ const Courses = () => {
   return (
     <div className='grid md:grid-cols-4'>
 
-      <div className='border md:col-span-3 order-2 lg:order-1'>
-        <div className='text-center text-5xl text-[#002333]'>
-          <h3 className=" border-b-2 border-[#002333]">Our Latest courses</h3><hr></hr>
+      <div className='md:col-span-3 order-1 lg:order-1 m-10'>
+        <div className='text-center'>
+          <h3 className="text-[#002333] text-3xl md:text-4xl font-semibold ">Our Latest courses</h3>
         </div>
 
-        <div className=''>
+        <div className="divider"></div>
+
+        <div>
           {
             allCourse.map(course => <CourseMain key={course.id} course={course}></CourseMain>)
           }
         </div>
       </div>
 
-      <div className='border order-1 lg:order-2'>
-        <p>all course {allCourse.length}</p>
-        <div className='sticky top-0 '>
+      <div className='order-2 lg:order-2 m-10'>
+        <div className='sticky top-0'>
+          <p className='md:text-center text-left'> our all course</p>
           {
             allCourse.map(course => <CoursesAside key={course.id} course={course}></CoursesAside>)
           }

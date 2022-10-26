@@ -7,7 +7,7 @@ const CourseMain = ({ course }) => {
 
   return (
     <div>
-      <div className='border flex min:h-[350px] rounded-md  m-10'>
+      <div className='border flex min:h-[350px] rounded-md mb-8'>
         <img src={img} className="h-[350px] hidden lg:block" alt="course img" />
 
         <div className='space-y-5'>

@@ -32,13 +32,13 @@ const CourseDetails = () => {
             </div>
           </div>
         </div>
-        <img className='hidden lg:block w-1/3  -skew-x-12 rounded-md' src={cardImg} alt="" />
+        <img className='hidden lg:block w-1/4  -skew-x-12 rounded-md' src={cardImg} alt="" />
       </div>
       
       <div className='lg:flex mt-10 lg:px-[10%]'>
         <div className='border lg:w-4/5'>
-          <p className='text-xl'>{body}</p>
-          
+          <p className='text-md'>{body}</p>
+
         </div>
 
         <div className='border lg:w-1/5'>2</div>

@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
+import './Header.css'
 import { Link, NavLink } from 'react-router-dom';
 import BrandLogo from '../../../assets/img/BrandLogo.svg'
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaHome, FaUserCircle } from "react-icons/fa";
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
+import { Bars3Icon, MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 
 
 const Header = () => {
@@ -21,7 +22,7 @@ const Header = () => {
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="lg:hidden btn btn-ghost btn-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+            <Bars3Icon className="h-7 w-7" />
           </label>
 
           <label tabIndex={0} className='hidden lg:block'>
@@ -32,11 +33,11 @@ const Header = () => {
             <Link to='/'><img src={BrandLogo} alt="" /></Link>
             <NavLink className={({ isActive }) => isActive ? 'active' : undefined} to='/home'><FaHome className='inline-block' /> Home</NavLink>
             <NavLink to='/courses'>Courses</NavLink>
-            <NavLink>FAQ</NavLink>
-            <NavLink>Blog</NavLink>
+            <NavLink to='/fag'>FAQ</NavLink>
+            <NavLink to='/blog'>Blog</NavLink>
             {
               theme === 'light' ?
-                <NavLink onClick={() => setTheme("dark")} title='Dark Mode'><MoonIcon className="h-6 w-6 text-blue-500" /></NavLink>
+                <NavLink onClick={() => setTheme("dark")} title='Dark'><MoonIcon className="h-6 w-6 text-blue-500" /></NavLink>
                 :
                 <NavLink onClick={() => setTheme("light")} title='Light'><SunIcon className="h-6 w-6 text-blue-500" /></NavLink>
             }
@@ -52,7 +53,7 @@ const Header = () => {
           <NavLink to='/blog'>Blog</NavLink>
           {
             theme === 'light' ?
-              <NavLink onClick={() => setTheme("dark")} title='Dark Mode'><MoonIcon className="h-6 w-6 text-blue-500" /></NavLink>
+              <NavLink onClick={() => setTheme("dark")} title='Dark'><MoonIcon className="h-6 w-6 text-blue-500" /></NavLink>
               :
               <NavLink onClick={() => setTheme("light")} title='Light'><SunIcon className="h-6 w-6 text-blue-500" /></NavLink>
           }
