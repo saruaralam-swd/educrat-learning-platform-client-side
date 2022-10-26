@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CoursesAside = ({course}) => {
-  const {id, name, price} = course;
+  const {id, name} = course;
 
   return (
     <div>

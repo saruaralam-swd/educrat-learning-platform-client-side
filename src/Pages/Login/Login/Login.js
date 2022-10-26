@@ -3,6 +3,9 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import toast, { Toaster } from 'react-hot-toast';
+
+const notifySuccess = () => toast.success('successfully')
 
 const Login = () => {
   const { providerLogin,  signIn } = useContext(AuthContext);
@@ -12,12 +15,14 @@ const Login = () => {
   const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
 
-  // signIn with google 
+  // google 
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
       .then(result => {
         const user = result.user;
         console.log(user);
+        notifySuccess()
+        setError('')
         navigate('/')
       })
       .catch(error => {
@@ -26,11 +31,14 @@ const Login = () => {
       })
   };
 
+  // github
   const handleGithubSignIn = () => {
     providerLogin(githubProvider)
       .then(result => {
         const user = result.user;
         console.log(user);
+        notifySuccess()
+        setError('')
         navigate('/')
       })
       .catch(error => {
@@ -39,15 +47,16 @@ const Login = () => {
       })
   };
 
+  // email & password
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
     signIn(email, password)
       .then(() => {
+        notifySuccess()
         form.reset()
         setError('')
         navigate('/')
@@ -85,6 +94,7 @@ const Login = () => {
         <div className='p-5'>
           <button onClick={handleGoogleSignIn} className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 mb-3 rounded-md'><FaGoogle className='text-lg' /> <span>sign in with Google</span></button>
           <button onClick={handleGithubSignIn} className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 rounded-md'> <FaGithub className='text-lg' /> <span>sign in with Github</span></button>
+          <Toaster />
         </div>
       </div>
     </div>

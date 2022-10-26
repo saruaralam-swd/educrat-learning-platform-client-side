@@ -1,14 +1,20 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { FaDownload } from 'react-icons/fa'
+
 
 const CourseDetails = () => {
   const course = useLoaderData();
   console.log(course);
-  const {name} = course;
+  const { name } = course;
 
   return (
     <div>
-      {name}
+      <h3>
+        {name}
+        <Link><FaDownload className='inline-block' /></Link>
+      </h3>
+      <Link to='/'><button className='bg-violet-500 text-white px-4 py-1 rounded-md'>get premium access</button></Link>
     </div>
   );
 };

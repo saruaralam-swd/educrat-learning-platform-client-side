@@ -1,10 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import { FaGoogle, FaGithub } from "react-icons/fa";
+import { GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, providerLogin } = useContext(AuthContext);
   const [error, setError] = useState('');
+
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,7 +18,6 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-
 
     createUser(email, password)
       .then(result => {
@@ -32,9 +36,42 @@ const Register = () => {
     const profile = {
       displayName: name,
       photoURL: photoURL
-    };
-    return updateUserProfile(profile);
+    }
+
+    return updateUserProfile(profile)
+      .then(() => { })
+      .catch(error => {
+        console.error(error)
+        setError(error.message)
+      })
   };
+
+  const handleGoogleSignup = () => {
+    providerLogin(googleProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        setError('')
+      })
+      .catch(error => {
+        console.error('error', error);
+        setError(error.message)
+      })
+  };
+
+  const handleGithubSignup = () => {
+    providerLogin(githubProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        setError('')
+      })
+      .catch(error => {
+        console.error('error', error);
+        setError(error.message)
+      })
+  }
+
 
   return (
     <div className='bg-[#EFEBFA] flex items-center justify-center py-10'>
@@ -55,8 +92,10 @@ const Register = () => {
         <p className='text-center'>or</p>
 
         <div className='p-5'>
-          <button className='flex items-center gap-24 w-full border hover:bg-gray-200 px-4 py-1 mb-3 rounded-full'> <span>sign in with google</span></button>
-          <button className='flex items-center gap-24 w-full border hover:bg-gray-200 px-4 py-1 rounded-full'> <span>sign in with facebook</span></button>
+          <div className='p-5'>
+            <button onClick={handleGoogleSignup} className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 mb-3 rounded-md'><FaGoogle className='text-lg' />  <span>sign Up with Google</span></button>
+            <button onClick={handleGithubSignup} className='flex items-center gap-3 w-full border hover:bg-gray-200 px-4 py-1 rounded-md'> <FaGithub className='text-lg' />  <span>sign Up with Github</span></button>
+          </div>
         </div>
       </div>
     </div>
