@@ -1,15 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-  const { createUser, updateUserProfile, providerLogin } = useContext(AuthContext);
+  const { createUser, updateUserProfile, providerLogin, logOut } = useContext(AuthContext);
   const [error, setError] = useState('');
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,9 +23,13 @@ const Register = () => {
     createUser(email, password)
       .then(result => {
         const user = result.user
+        console.log(user);
         form.reset();
         setError('')
         handleUpdateUserProfile(name, photoURL);
+        logOut()
+        navigate('/login')
+        alert('account create successful. please login')
       })
       .catch(error => {
         console.error(error)
