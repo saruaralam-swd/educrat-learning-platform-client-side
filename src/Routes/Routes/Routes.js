@@ -7,6 +7,8 @@ import Login from '../../Pages/Login/Login/Login';
 import Register from '../../Pages/Login/Register/Register';
 import CourseAccess from '../../Pages/Courses/CourseAccess/CourseAccess';
 import PrivateRoute from '../../Pages/Login/PrivateRoute/PrivateRoute';
+import Blog from '../../Pages/Blog/Blog/Blog';
+import FAQ from '../../Pages/FAQ/FAQ/FAQ';
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +45,14 @@ export const router = createBrowserRouter([
         path: '/course/:id',
         element: <PrivateRoute><CourseAccess></CourseAccess></PrivateRoute>,
         loader: ({ params }) => fetch(`https://b610-lerning-platform-server-side-saruaralam-swd.vercel.app/courses/${params.id}`)
+      },
+      {
+        path: '/fag',
+        element: <FAQ></FAQ>
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
       }
     ]
   },
