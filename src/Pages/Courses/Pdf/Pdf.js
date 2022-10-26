@@ -39,13 +39,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const Pdf = () => {
+const Pdf = ({ course }) => {
+  const { cardImg, instructor, name, body, } = course;
+
   return (
     <Document>
       <Page style={styles.body}>
-        <Text style={styles.header} fixed></Text>
-        <Image style={styles.image} src={img} />
-        <Text style={styles.text}></Text>
+        <Text style={styles.header} fixed>{name}</Text>
+        <Text style={styles.text}>Instructor: {instructor}</Text>
+        <Image  src={cardImg} />
+        <Text style={styles.text}>{body}</Text>
         <Text
           style={styles.pageNumber}
           render={({ pageNumber, totalPages }) =>
