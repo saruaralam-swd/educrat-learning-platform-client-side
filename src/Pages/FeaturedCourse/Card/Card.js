@@ -12,7 +12,7 @@ const Card = ({ card }) => {
         <h4 className=' font-bold'>{name}</h4>
 
         <div className='flex justify-between items-center'>
-          <p className='flex items-center  gap-1 text-sm text-gray-500'><FaRegClock className='inline-block' /> {duration} months</p>
+          <p className='flex items-center  gap-1 text-sm text-gray-500'><FaRegClock className='inline-block' /> 3 months</p>
           <p className='text-sm text-gray-500'>TK {price}</p>
         </div>
       </div>
