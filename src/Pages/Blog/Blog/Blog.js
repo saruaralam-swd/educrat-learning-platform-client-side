@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Blog = () => {
   return (
-    <div className='pl-32 pt-10 pr-32 space-y-10  '>
+    <div className='md:pl-32  md:pt-10 md:pr-32 pt-10 px-5 space-y-10  '>
       <div>
         <Link className=' dark:text-violet-500 text-violet-900 hover:text-violet-600 text-2xl hover:underline'> what is cors?</Link>
         <p className=''>CORS, also known as Cross-Origin Resource Sharing, allows resources such as JavaScript and web fonts to be loaded from domains other than the origin parent domain.These days, a web page commonly loads images, stylesheets, scripts, etc. from other domains. Although, a few years ago due to security reasons, web fonts and AJAX (XML HTTP Requests) were normally restricted to the same-origin policy which restricted their use between domains. Now however, with the use of CORS, the browser and server can communicate to determine whether it is safe to allow a cross-origin request.</p>
