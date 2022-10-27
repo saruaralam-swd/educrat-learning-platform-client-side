@@ -1,6 +1,7 @@
-#  Project Name: Educrat (online courses)
+#  website name: Educrat
 
-website link: [https://dev-quizzes-cc61c6.netlify.app]
+Live link : [https://dev-quizzes-cc61c6.netlify.app]
+
 
 # Description: 
 - we use react router dom for dynamic routing
@@ -11,10 +12,10 @@ website link: [https://dev-quizzes-cc61c6.netlify.app]
 - add
 - add
 
-# libraries
+## libraries
 - react js
 
-# frameworks
+## frameworks
 - Tailwind CSS.
 
 

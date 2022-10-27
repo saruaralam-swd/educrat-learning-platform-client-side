@@ -2,11 +2,12 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
-import { FaGoogle, FaGithub } from "react-icons/fa";
+import { FaGoogle, FaGithub, FaUser } from "react-icons/fa";
 
 const Login = () => {
-  const { providerLogin, signIn } = useContext(AuthContext);
+  const { providerLogin, signIn, forgetPassword } = useContext(AuthContext);
   const [error, setError] = useState('');
+  const [userEmail, setUserEmail] = useState('');
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -64,18 +65,41 @@ const Login = () => {
       })
   };
 
+  // password reset
+  const handleEmailBlur = event => {
+    const email = event.target.value;
+    setUserEmail(email)
+  };
+
+  const handleForgetPassword = () => {
+    if (!userEmail) {
+      alert('please enter your email address')
+      return;
+    }
+    
+    forgetPassword(userEmail)
+      .then(() => {
+        alert('Password reset email sent, please check your email')
+        setError('')
+      })
+      .catch(error => {
+        console.error(error)
+        setError(error.message);
+      })
+  };
+
   return (
     <div className='bg-[#EFEBFA] flex justify-center min-h-[600px] py-10'>
       <div className='bg-[#F6F6FD] rounded-xl h-[500px]'>
         <form onSubmit={handleSubmit} className=' px-8 pt-8 space-y-5 w-[400px]'>
           <div className='space-y-2'>
             <h2>Your Email</h2>
-            <input className='border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="email" name="email" placeholder='your email' />
+            <input onBlur={handleEmailBlur} className='border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="email" name="email" placeholder='email' />
           </div>
 
           <div className='space-y-2'>
             <h2>Password</h2>
-            <input className='border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="password" name="password" placeholder='your password' />
+            <input className=' border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="password" name="password" placeholder="password" />
           </div>
 
           <p className='text-red-400'>{error}</p>
@@ -84,7 +108,7 @@ const Login = () => {
 
           <div className="divider">OR</div>
 
-          <Link className='text-sm hover:underline text-blue-600'>Forget Password?</Link> <br></br>
+          <Link onClick={handleForgetPassword} className='text-sm hover:underline text-blue-600'>Forget Password?</Link> <br></br>
           <Link to='/register' className='text-sm hover:underline text-blue-600'>Or, Sign Up Using E-mail Address </Link>
         </form>
 

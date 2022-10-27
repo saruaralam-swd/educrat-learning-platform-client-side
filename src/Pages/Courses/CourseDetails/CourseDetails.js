@@ -8,7 +8,6 @@ import Pdf from '../Pdf/Pdf';
 const CourseDetails = () => {
   const course = useLoaderData();
   const { id, name, cardImg, body, categoryId, deadLine, enroll, instructor, instructorSay, price, startCourse, time, type } = course;
-  console.log(course);
 
   return (
     <div className='px-20 pt-10'>

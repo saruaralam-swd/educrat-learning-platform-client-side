@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Card = ({ card }) => {
   const { id, cardImg, name, price, duration } = card;
-  console.log(card);
 
   return (
     <div className='border rounded-md space-y-4 truncate'>
