@@ -11,7 +11,7 @@ const Cards = () => {
   }, [])
 
   return (
-    <div className='px-20'>
+    <div className='px-10 md:px-20'>
       <h2 className='text-2xl md:text-3xl text-center font-semibold'>Our Featured Courses</h2>
       
       <div className="divider">OR</div>
