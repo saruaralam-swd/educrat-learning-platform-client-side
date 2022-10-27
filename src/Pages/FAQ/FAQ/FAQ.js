@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const FAQ = () => {
   return (
-    <div className='px-10 m-20'>
+    <div className='md:px-10 md:m-20'>
       <div className="collapse">
         <input type="checkbox" />
         <div className="collapse-title text-xl font-medium">
