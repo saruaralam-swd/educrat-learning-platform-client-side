@@ -1,3 +1,23 @@
+#  Project Name: Educrat (online courses)
+
+website link: [https://dev-quizzes-cc61c6.netlify.app]
+
+# Description: 
+- we use react router dom for dynamic routing
+- we use loader for data load 
+- we use reChart for show statistics 
+- we load Dynamic API data using dynamic routes
+- add
+- add
+- add
+
+# libraries
+- react js
+
+# frameworks
+- Tailwind CSS.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

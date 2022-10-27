@@ -9,6 +9,7 @@ import CourseAccess from '../../Pages/Courses/CourseAccess/CourseAccess';
 import PrivateRoute from '../../Pages/Login/PrivateRoute/PrivateRoute';
 import Blog from '../../Pages/Blog/Blog/Blog';
 import FAQ from '../../Pages/FAQ/FAQ/FAQ';
+import Error from '../../Pages/Error/Error/Error';
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <div>Page not found</div>
+    element: <Error></Error>
   }
 ]);
