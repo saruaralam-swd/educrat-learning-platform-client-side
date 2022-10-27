@@ -3,20 +3,32 @@
 Live link : [https://dev-quizzes-cc61c6.netlify.app]
 
 
-# Description: 
-- we use react router dom for dynamic routing
-- we use loader for data load 
-- we use reChart for show statistics 
-- we load Dynamic API data using dynamic routes
-- add
-- add
-- add
+# Feature & Functionality: 
+- login 3 types of login systems (email/password, google, github) 
+- password reset system add
+- sign up system add
+- i am use some package (react-router-dom, @react-pdf/renderer, firebase, react-hot-toast, react-icons, react-toastify, )
+- this project i am use authentication system 
+- And have private routing feature to block unauthorize user.
+- If a user is logged in, only then a user can access this private route.
 
-## libraries
-- react js
 
-## frameworks
-- Tailwind CSS.
+## css libraries
+- daisyui Tailwind  component library
+
+## css frameworks
+- Tailwind
+
+-----
+Project Live Site Link [Invest In Knowledge](https://learning-platform-8c374.web.app/)
+
+## Feature & Functionality
+- This project has routing. Using routing based on url we can show user different component.
+- And have private routing feature to block unauthorize user.
+- If a user is logged in, only then a user can access this private route.
+- User can login or register with only email and password or with Google And Github.
+- In courses route we show all courses. With name as sidebar and img and name with content details.
+- After a course is click it will redirect to course details route where we show details of the course with Price.
 
 
 # Getting Started with Create React App

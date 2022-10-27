@@ -2,7 +2,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
-import { FaGoogle, FaGithub, FaUser } from "react-icons/fa";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const { providerLogin, signIn, forgetPassword } = useContext(AuthContext);
@@ -104,7 +104,7 @@ const Login = () => {
 
           <p className='text-red-400'>{error}</p>
 
-          <button className='bg-yellow-300 hover:bg-yellow-400 px-4 py-1 rounded-md'>Login</button><br></br>
+          <button className='bg-[#002333] text-white px-4 py-1 rounded-md'>Login</button><br></br>
 
           <div className="divider">OR</div>
 

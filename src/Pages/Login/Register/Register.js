@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
@@ -89,7 +89,7 @@ const Register = () => {
 
           <p className='text-red-400'>{error}</p>
 
-          <button className='bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 w-full font-semibold rounded-md'>Crate a account</button>
+          <button className='bg-[#002333]  text-white px-4 py-3 w-full font-semibold rounded-md'>Crate a account</button>
           
           <p className='text-center mt-4'>Already have account ? <Link to='/login' className='hover:underline text-[#F9A51A]'>Login</Link></p>
 
@@ -108,4 +108,3 @@ const Register = () => {
 };
 
 export default Register;
-
