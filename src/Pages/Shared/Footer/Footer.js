@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-[#303846] text-white rounded mt-10">
       <div className="grid grid-flow-col gap-4">
-        <Link className="link link-hover">Home</Link>
-        <Link className="link link-hover">Courses</Link>
-        <Link className="link link-hover">FAQ</Link>
-        <Link className="link link-hover">Blog</Link>
+        <NavLink to='/home'  className="link link-hover">Home</NavLink>
+        <NavLink to='/courses'  className="link link-hover">Courses</NavLink>
+        <NavLink to='/fag'  className="link link-hover">FAQ</NavLink>
+        <NavLink to='/blog'  className="link link-hover">Blog</NavLink>
       </div>
 
       <div>

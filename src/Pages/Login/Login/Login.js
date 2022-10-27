@@ -3,10 +3,10 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const { providerLogin, signIn, forgetPassword } = useContext(AuthContext);
-  const [error, setError] = useState('');
   const [userEmail, setUserEmail] = useState('');
 
   const googleProvider = new GoogleAuthProvider();
@@ -22,12 +22,12 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
-        setError('')
         navigate(from, { replace: true });
+        toast.success('google login success')
       })
       .catch(error => {
         console.error('error', error);
-        setError(error.message)
+        toast.error(error.message)
       })
   };
 
@@ -37,16 +37,16 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
-        setError('')
         navigate(from, { replace: true });
+        toast.success('github login success')
       })
       .catch(error => {
         console.error('error', error);
-        setError(error.message)
+        toast.error(error.message)
       })
   };
 
-  // email & password
+  // login with email & password
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -56,12 +56,12 @@ const Login = () => {
     signIn(email, password)
       .then(() => {
         form.reset()
-        setError('')
         navigate(from, { replace: true });
+        toast.success('login success')
       })
       .catch(error => {
         console.error(error)
-        setError(error.message)
+        toast.error(error.message)
       })
   };
 
@@ -80,11 +80,10 @@ const Login = () => {
     forgetPassword(userEmail)
       .then(() => {
         alert('Password reset email sent, please check your email')
-        setError('')
       })
       .catch(error => {
         console.error(error)
-        setError(error.message);
+        toast.error(error.message)
       })
   };
 
@@ -92,20 +91,21 @@ const Login = () => {
     <div className='bg-[#EFEBFA] flex justify-center min-h-[600px] py-10'>
       <div className='bg-[#F6F6FD] rounded-xl h-[500px]'>
         <form onSubmit={handleSubmit} className=' px-8 pt-8 space-y-5 w-[400px]'>
+          
           <div className='space-y-2'>
             <h2>Your Email</h2>
-            <input onBlur={handleEmailBlur} className='border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="email" name="email" placeholder='email' />
+            <input onBlur={handleEmailBlur} className='border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="email" name="email" placeholder='email' required />
           </div>
 
           <div className='space-y-2'>
             <h2>Password</h2>
-            <input className=' border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="password" name="password" placeholder="password" />
+            <input className=' border px-3 p-2 w-full focus:outline-2 outline-blue-600 rounded-md' type="password" name="password" placeholder="password" required />
           </div>
 
-          <p className='text-red-400'>{error}</p>
+          {/* <p className='text-red-400'>{error}</p> */}
 
           <button className='bg-[#002333] text-white px-4 py-1 rounded-md'>Login</button><br></br>
-
+          
           <div className="divider">OR</div>
 
           <Link onClick={handleForgetPassword} className='text-sm hover:underline text-blue-600'>Forget Password?</Link> <br></br>

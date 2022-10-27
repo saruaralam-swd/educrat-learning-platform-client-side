@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 const Register = () => {
   const { createUser, updateUserProfile, providerLogin, logOut } = useContext(AuthContext);
@@ -10,8 +11,12 @@ const Register = () => {
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  // create account
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -30,13 +35,16 @@ const Register = () => {
         logOut()
         navigate('/login')
         alert('account create successful. please login')
+        toast.success('account create successful. please login')
       })
       .catch(error => {
         console.error(error)
         setError(error.message)
+        toast.error(error.message)
       })
   };
 
+  // update user profile
   const handleUpdateUserProfile = (name, photoURL) => {
     const profile = {
       displayName: name,
@@ -44,13 +52,15 @@ const Register = () => {
     }
 
     return updateUserProfile(profile)
-      .then(() => { })
+      .then(() => {})
       .catch(error => {
         console.error(error)
         setError(error.message)
+        toast.error(error.message)
       })
   };
 
+  // google sign up
   const handleGoogleSignup = () => {
     providerLogin(googleProvider)
       .then(result => {
@@ -64,12 +74,14 @@ const Register = () => {
       })
   };
 
+  // github sign up
   const handleGithubSignup = () => {
     providerLogin(githubProvider)
       .then(result => {
         const user = result.user;
         console.log(user);
         setError('')
+        navigate(from, { replace: true });
       })
       .catch(error => {
         console.error('error', error);
