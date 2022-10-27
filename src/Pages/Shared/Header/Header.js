@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar bg-[#002333] text-white">
+    <div className="navbar bg-[#002333] text-white sticky top-0 px-5 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="lg:hidden btn btn-ghost btn-circle">
@@ -37,7 +37,7 @@ const Header = () => {
             <NavLink to='/blog'>Blog</NavLink>
             {
               theme === 'light' ?
-                <NavLink onClick={() => setTheme("dark")} title='Dark'><MoonIcon className="h-6 w-6 text-blue-500" /></NavLink>
+                <NavLink onClick={() => setTheme("black")} title='Dark'><MoonIcon className="h-6 w-6 text-blue-500" /></NavLink>
                 :
                 <NavLink onClick={() => setTheme("light")} title='Light'><SunIcon className="h-6 w-6 text-blue-500" /></NavLink>
             }
@@ -53,7 +53,7 @@ const Header = () => {
           <NavLink to='/blog'>Blog</NavLink>
           {
             theme === 'light' ?
-              <NavLink onClick={() => setTheme("dark")} title='Dark'><MoonIcon className="h-6 w-6 text-blue-500" /></NavLink>
+              <NavLink onClick={() => setTheme("black")} title='Dark'><MoonIcon className="h-6 w-6 text-blue-500" /></NavLink>
               :
               <NavLink onClick={() => setTheme("light")} title='Light'><SunIcon className="h-6 w-6 text-blue-500" /></NavLink>
           }
@@ -81,7 +81,6 @@ const Header = () => {
         }
       </div>
     </div>
-
   );
 };
 

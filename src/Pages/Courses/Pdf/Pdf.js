@@ -39,12 +39,14 @@ const styles = StyleSheet.create({
 });
 
 const Pdf = ({ course }) => {
-  const { name, cardImg, student, create, lesson, update, language, body, categoryId, deadLine, enroll, instructor, instructorSay, price, startCourse, time, type } = course;
+  const { name, cardImg, student, create,  update, language, body,  deadLine,  instructor,  price,  time, type } = course;
 
   return (
     <Document>
       <Page style={styles.body}>
         <Text style={styles.header} fixed>{name}</Text>
+        <Image style={styles.image} src={cardImg}></Image>
+        
         <Text style={styles.text}>Instructor: {instructor}</Text>
         <Text style={styles.text}>Created by: {create}</Text>
         <Text style={styles.text}>Modify: {update}</Text>
@@ -55,12 +57,8 @@ const Pdf = ({ course }) => {
         <Text style={styles.text}>DeadLine: {deadLine}</Text>
         <Text style={styles.text}>Price: TK{price}</Text>
         <Text style={styles.text}>{body}</Text>
-        <Text
-          style={styles.pageNumber}
-          render={({ pageNumber, totalPages }) =>
-            `${pageNumber} / ${totalPages}`
-          }
-        />
+
+        <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}` } />
       </Page>
     </Document>
   );

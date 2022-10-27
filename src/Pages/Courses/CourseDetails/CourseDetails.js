@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaDownload, FaShare, FaSpinner } from 'react-icons/fa'
-import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import Pdf from '../Pdf/Pdf';
 
 
 const CourseDetails = () => {
   const course = useLoaderData();
-  const { id, name, cardImg, body, categoryId, deadLine, enroll, instructor, instructorSay, price, startCourse, time, type } = course;
+  const { id, name, cardImg, body, price, type } = course;
 
   return (
     <div className='px-20 pt-10'>

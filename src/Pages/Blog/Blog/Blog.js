@@ -5,8 +5,8 @@ const Blog = () => {
   return (
     <div className='pl-32 pt-10 pr-32 space-y-10  '>
       <div>
-        <Link className=' dark:text-violet-500 text-violet-900 hover:text-violet-600 text-2xl hover:underline'>what is cors?</Link>
-        <p className=''>Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. CORS also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.</p>
+        <Link className=' dark:text-violet-500 text-violet-900 hover:text-violet-600 text-2xl hover:underline'>Q. Who should take an Online Course?</Link>
+        <p className=''></p>
       </div>
 
       <div>

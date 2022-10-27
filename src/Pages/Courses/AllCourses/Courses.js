@@ -24,7 +24,7 @@ const Courses = () => {
       </div>
 
       <div className='order-2 lg:order-2 pt-10 ml-10 md:ml-0'>
-        <div className='sticky top-0'>
+        <div className='sticky top-16'>
           <p className='md:text-center text-left'> our all courses</p>
           {
             allCourse.map(course => <CoursesAside key={course.id} course={course}></CoursesAside>)

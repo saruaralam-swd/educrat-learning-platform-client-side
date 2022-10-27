@@ -1,11 +1,12 @@
 import React from 'react';
-import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import { LanguageIcon } from '@heroicons/react/24/solid'
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const CourseAccess = () => {
   const course = useLoaderData();
-  const { name, cardImg, student, create, lesson, update, language, body, categoryId, deadLine, enroll, instructor, instructorSay, price, startCourse, time, type } = course;
+  const { name, cardImg, student, create, lesson, update, language } = course;
 
   return (
     <div className='w-4/5 mx-auto my-10 space-y-2'>
@@ -20,7 +21,8 @@ const CourseAccess = () => {
         <p>Last Modify : {update} </p>
         <p><LanguageIcon className='h-6 w-6 inline-block' /> {language}</p>
       </div>
-      <button className='bg-violet-500 text-white px-4 py-1 rounded-md'>Enroll Now</button>
+      <button onClick={() => toast.success('your enroll successful')} className='bg-violet-500 text-white px-4 py-1 rounded-md'>Enroll Now</button>
+      <Toaster />
     </div>
   );
 };
