@@ -1,6 +1,6 @@
 #  website name: Educrat
 
-Live link : [https://dev-quizzes-cc61c6.netlify.app]
+Live link : [https://learning-platform-client-f6cbc.web.app]
 
 
 # Feature & Functionality: 
