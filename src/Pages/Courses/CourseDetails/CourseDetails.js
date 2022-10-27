@@ -26,21 +26,28 @@ const CourseDetails = () => {
             <p className='bg-[#e9c46b] px-2 py-1 rounded-md text-sm inline-block'>{type}</p>
             <p className=' font-semibold'>Tk {price}</p>
             <div className='flex items-center gap-3'>
-              <Link to={`/course/${id}`}><button className='bg-violet-500 text-white px-4 py-1 rounded-md'>get premium access</button></Link>
+              <Link to={`/course/${id}`}><button className='bg-violet-500 text-white px-4 py-1 rounded-md'>get access</button></Link>
               <Link className='text-violet-600 text-sm'><FaShare className='inline-block' /> <span className='underline'>Share</span></Link>
             </div>
           </div>
         </div>
         <img className='hidden lg:block w-1/4  -skew-x-12 rounded-md' src={cardImg} alt="" />
       </div>
-      
-      <div className='lg:flex mt-10 lg:px-[10%]'>
-        <div className='border lg:w-4/5'>
-          <p className='text-md'>{body}</p>
 
+      <div className='lg:flex mt-10 gap-10'>
+        <div className='lg:w-4/5'>
+          <p className='text-md'>{body}</p>
         </div>
 
-        <div className='border lg:w-1/5'>2</div>
+        <div className=' lg:w-1/5'>
+          <div className='space-y-1 mt-5 md:mt-0'>
+            <Link className='block text-[#197fc3] hover:underline'>Outline</Link>
+            <Link className='block text-[#197fc3] hover:underline'>Schedule</Link>
+            <Link className='block text-[#197fc3] hover:underline'>Instructor</Link>
+            <Link className='block text-[#197fc3] hover:underline' to='/'>Related</Link>
+            <Link className='block text-[#197fc3] hover:underline'>What Student Said</Link>
+          </div>
+        </div>
       </div>
     </div>
   );

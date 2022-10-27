@@ -1,6 +1,5 @@
 import React from "react";
 import { Page, Text, Image, Document, StyleSheet } from "@react-pdf/renderer";
-// import img from '../../../assets/Pdf/Capture.PNG'
 
 const styles = StyleSheet.create({
   body: {
@@ -47,8 +46,6 @@ const Pdf = ({ course }) => {
       <Page style={styles.body}>
         <Text style={styles.header} fixed>{name}</Text>
         <Text style={styles.text}>Instructor: {instructor}</Text>
-        <Image src={cardImg} />
-        <Image src={`${cardImg}`} />
         <Text style={styles.text}>{body}</Text>
         <Text
           style={styles.pageNumber}

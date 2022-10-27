@@ -6,7 +6,7 @@ const CoursesAside = ({course}) => {
 
   return (
     <div>
-      <Link to={`/courses/${id}`} className='text-blue-500 hover:underline'>{name}</Link>
+      <Link to={`/courses/${id}`} className='text-blue-500 hover:underline'># {name}</Link>
     </div>
   );
 };
