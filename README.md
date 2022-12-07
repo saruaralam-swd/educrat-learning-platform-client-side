@@ -4,6 +4,9 @@ Live link : [https://learning-platform-client-f6cbc.web.app]
 
 
 # Feature & Functionality: 
+- Dynamically course loaded, filtering by categories & type using React, Express JS & MongoDB. Applied 
+- Dynamic course details route & download course PDF used react-to-PDF 
+- Private Checkout route forcing to login & authenticate by Firebase, React router and Context API
 - login 3 types of login systems (email/password, google, github) 
 - password reset system add
 - sign up system add
@@ -12,6 +15,8 @@ Live link : [https://learning-platform-client-f6cbc.web.app]
 - And have private routing feature to block unauthorize user.
 - If a user is logged in, only then a user can access this private route.
 
+## Technology
+- TailwindCss, DaisyUI, ReactJs, React-Router-Dom, Firebase, NodeJs, ExpressJs
 
 ## css libraries
 - daisyui Tailwind  component library
